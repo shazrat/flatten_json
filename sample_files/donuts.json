@@ -1,0 +1,49 @@
+{
+    "donuts": [
+        {
+            "batter": {
+                "types": [
+                    {
+                        "type": "Regular"
+                    },
+                    {
+                        "type": "Chocolate"
+                    },
+                    {
+                        "type": "Blueberry"
+                    },
+                    {
+                        "type": "Devil's Food"
+                    }
+                ]
+            },
+            "calories": 550,
+            "id": "1",
+            "name": "chocolate frosted",
+            "toppings": [
+                {
+                    "type": "None"
+                },
+                {
+                    "type": "Glazed"
+                },
+                {
+                    "type": "Sugar"
+                },
+                {
+                    "type": "Powdered Sugar"
+                },
+                {
+                    "type": "Chocolate with Sprinkles"
+                },
+                {
+                    "type": "Chocolate"
+                },
+                {
+                    "type": "Maple"
+                }
+            ],
+            "type": "donut"
+        }
+    ]
+}
