@@ -8,12 +8,15 @@ Child objects have the following naming convention:
 {parent_name}_{child_attribute_name}
 
 ## Usage
+```
 $ python flatten_json.py -f json_file.json
+```
 
 Output files are saved to './output/*'
 
 Notes:
-    1. ID values are added to every new object.
-    2. Index values are added for arrays containing more than one object.
-    3. Arrays will have their parent attribute name simple-singularized:
-        (remove tailing 's')
+
+1. ID values are added to every new object.
+2. Index values are added for arrays containing more than one object.
+3. Arrays will have their parent attribute name simple-singularized:
+    (remove tailing 's')
