@@ -46,7 +46,11 @@ def read_data(filename):
     """
     with open(filename) as f:
         file_data = f.read()
-    json_data = json.loads(file_data)
+    try:
+        json_data = json.loads(file_data)
+    except ValueError as e:
+        print("Invalid JSON detected. Unable to load file:", filename)
+        raise
     return json_data
 
 
