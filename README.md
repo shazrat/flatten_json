@@ -25,5 +25,8 @@ Notes:
 ```
 $ python reconstruct_json.py --dir ./output
 ```
+Notes:
+
+1. Does not work correctly with files whose attribute names contain underscores.
 
 Cheers.
