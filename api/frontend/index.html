@@ -12,12 +12,19 @@
             <h1>Flatten Nested JSON Files</h1>
         </header>
 
-        <p id="description">You may provide a URL to a JSON file, or upload a JSON file instead.</p>
+        <p id="description">You may provide a URL to a JSON file, or upload a JSON file instead.
+        </p>
 
         <div>
             <strong>URL:</strong><br>
             <input type="text" id="url" value="https://s3-us-west-1.amazonaws.com/datacoral-challenge/sample_files/restaurants.json"><br />
-            <button id="button1">Submit</button>
+            <button id="button1">Submit</button><br /><br />
+            Other sample files:
+            <ol>
+                <li><a id="sample_1" href="javascript:;" onclick="myFunction(1)">https://s3-us-west-1.amazonaws.com/datacoral-challenge/sample_files/accounts.json</a></li>
+                <li><a id="sample_2" href="javascript:;" onclick="myFunction(2)">https://s3-us-west-1.amazonaws.com/datacoral-challenge/sample_files/donuts.json</a></li>
+                <li><a id="sample_3" href="javascript:;" onclick="myFunction(3)">https://s3-us-west-1.amazonaws.com/datacoral-challenge/sample_files/startups.json</a></li>
+            </ol>
         </div><br />
 
         <div>
@@ -29,5 +36,6 @@
             Results:
         </div>
         
+        <p>Powered by AWS Lambda, API Gateway, and S3. See full code at <a href="https://github.com/shazrat/flatten_json">https://github.com/shazrat/flatten_json</a></p>
     </body>
 </html>

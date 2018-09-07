@@ -61,3 +61,18 @@ function readSingleFile(evt) {
 window.onload = function() {
     document.getElementById("fileinput").addEventListener('change', readSingleFile, false);
 }
+
+function myFunction(num) {
+    base_url = "https://s3-us-west-1.amazonaws.com/datacoral-challenge/sample_files/"
+    switch(num) {
+        case 1:
+            url = base_url + 'accounts.json'
+            break;
+        case 2:
+            url = base_url + 'donuts.json'
+            break;
+        case 3:
+            url = base_url + 'startups.json'
+    }
+    document.getElementById("url").value = url;
+}
