@@ -20,3 +20,10 @@ Notes:
 2. Index values are added for arrays containing more than one object.
 3. Arrays will have their parent attribute name simple-singularized:
     (remove tailing 's')
+
+## Reconstructing original JSON
+```
+$ python reconstruct_json.py --dir ./output
+```
+
+Cheers.
