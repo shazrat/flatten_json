@@ -8,6 +8,9 @@ Child objects have the following naming convention:
 {parent_name}_{child_attribute_name}
 
 ## Usage
+Visit http://shirazhazrat.com/dc-challenge/ to test it through a serverless API, using AWS Lambda, API Gateway, and S3.
+
+To run it locally, simply run:
 ```
 $ python flatten_json.py -f json_file.json
 ```
@@ -28,5 +31,7 @@ $ python reconstruct_json.py --dir ./output
 Notes:
 
 1. Does not work correctly with files whose attribute names contain underscores.
+
+
 
 Cheers.
