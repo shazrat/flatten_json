@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Hello Datacoral team! -->
+  <title>Datacoral Coding Challenge</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="scripts.js"></script>
+</head>
+    <body>
+        <header>
+            <h1>Flatten Nested JSON Files</h1>
+        </header>
+
+        <p id="description">You may provide a URL to a JSON file, or upload a JSON file instead.</p>
+
+        <div>
+            <strong>URL:</strong><br>
+            <input type="text" id="url" value="https://s3-us-west-1.amazonaws.com/datacoral-challenge/sample_files/restaurants.json"><br />
+            <button id="button1">Submit</button>
+        </div><br />
+
+        <div>
+            <strong>Upload JSON File:</strong><br>
+            <input type="file" id="fileinput">
+        </div><br />
+
+        <div id="output">
+            Results:
+        </div>
+        
+    </body>
+</html>
