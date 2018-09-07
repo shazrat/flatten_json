@@ -15,6 +15,9 @@
         3. Index values are added for arrays containing more than one object.
         4. Arrays will have their parent name simple-singularized:
             (remove tailing 's')
+
+    TO DO:
+        1. Handle arrays of primatives better (ex. startups[screenshots][available_sizes])
 """
 
 import argparse
@@ -23,7 +26,7 @@ import os
 
 
 OUTPUT_DIR = './output'
-result = {}
+
 
 def get_filename():
     """ Reads the command line argument with flag '-f' to determine local
@@ -49,7 +52,7 @@ def read_data(filename):
     try:
         json_data = json.loads(file_data)
     except ValueError as e:
-        print("Invalid JSON detected. Unable to load file:", filename)
+        print("Invalid JSON detected. Unable to load file:", filename, e)
         raise
     return json_data
 
@@ -70,7 +73,7 @@ def get_id(data):
             return value
 
 
-def flatten(data, key="", index=0, filename="", id_value=None, set_index=False):
+def flatten(result, data, key="", index=0, filename="", id_value=None, set_index=False):
     """ Recursively go through each level of a JSON object, splitting each level
         and category into individual objects while preserving their data
         structure in the form of naming and index values.
@@ -104,7 +107,7 @@ def flatten(data, key="", index=0, filename="", id_value=None, set_index=False):
                         result[newfilename][-1]['id'] = id_value
                     if set_index:
                         result[newfilename][index]['__index'] = str(index)
-                flatten(val, key, index, newfilename, id_value, set_index)
+                flatten(result, val, key, index, newfilename, id_value, set_index)
                 
             elif type(val) is list:
                 if filename:
@@ -113,10 +116,10 @@ def flatten(data, key="", index=0, filename="", id_value=None, set_index=False):
                     newfilename = key[:-1]
                 if newfilename not in result:
                     result[newfilename] = []
-                flatten(val, key, index, newfilename, id_value, set_index)
+                flatten(result, val, key, index, newfilename, id_value, set_index)
 
             else:
-                flatten(val, key, index, filename, id_value, set_index)
+                flatten(result, val, key, index, filename, id_value, set_index)
 
     elif type(data) is list:
         for index in range(len(data)):
@@ -126,7 +129,7 @@ def flatten(data, key="", index=0, filename="", id_value=None, set_index=False):
             if len(data) > 1:
                 set_index = True
                 result[filename][-1]['__index'] = str(index)
-            flatten(data[index], "", index, filename, id_value, set_index)
+            flatten(result, data[index], "", index, filename, id_value, set_index)
 
     else:
         if not filename:    # Handle cases where top-level object is primative
@@ -134,6 +137,8 @@ def flatten(data, key="", index=0, filename="", id_value=None, set_index=False):
             result[filename] = [{}]
 
         result[filename][-1][key] = data
+    
+    return result
 
 
 def clean(result):
@@ -178,7 +183,7 @@ def write_to_files(result):
 def main():
     filename = get_filename()
     json_data = read_data(filename)
-    flatten(json_data)
+    result = flatten({}, json_data)
     output = clean(result)
     write_to_files(output)
 
