@@ -86,7 +86,7 @@ def flatten(result, data, key="", index=0, filename="", id_value=None, set_index
             id_value (string): Added to all new objects
         
         Returns:
-            None
+            result (dict): Contains each flattened JSON object as a new key.
     """
     if type(data) is dict:
         if id_value == None:
