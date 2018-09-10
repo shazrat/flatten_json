@@ -1,6 +1,8 @@
-# flatten_json
+# Flatten JSON Coding Challenge
 
 Given a deeply nested JSON object, this script splits it up into individual JSON objects with one level of nesting. The child objects are created such that the original JSON can be reconstructed.
+
+Written in Python 3.6.
 
 ## Naming convention
 
